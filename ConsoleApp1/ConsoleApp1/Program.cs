@@ -25,8 +25,8 @@ namespace ConsoleApp1
             cmP /= 100;
 
             BMI = (kgP / (cmP * cmP));
-            Console.WriteLine($"あなたのBMIは{BMI}");
-            Console.WriteLine($"あなたは{BMIrating(BMI)}");
+            Console.WriteLine($"あなたのBMIは{BMI:F2}");
+            Console.WriteLine($"あなたは{BMIrating(BMI)}です。");
         }
         //BMIを表示する
 
