@@ -6,27 +6,40 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            BMI();
+            BMI(args);
+
+            Console.WriteLine("\n何かのキーを押すと終了します。");
+            Console.ReadLine();
         }
 
-        public static void BMI()
+        public static void BMI(string[] num)
         {
             //string cm, kg;
             float cmP, kgP, BMI;
+            if (num != null)
+            {
+                for (int i = 0; i < num.Length; i++)
+                {
+                    fast(num, i);
 
-            Console.WriteLine("身長を入力してください。");
-            //cm = float.Parse(Console.ReadLine());
-            cmP = NumReadfloat();
+                }
+            }
+            else
+            {
+                Console.WriteLine("身長を入力してください。");
+                //cm = float.Parse(Console.ReadLine());
+                cmP = NumReadfloat();
 
-            Console.WriteLine("体重を入力してください。");
-            //kg = float.Parse(Console.ReadLine());
-            kgP = NumReadfloat();
+                Console.WriteLine("体重を入力してください。");
+                //kg = float.Parse(Console.ReadLine());
+                kgP = NumReadfloat();
 
-            cmP /= 100;
+                cmP /= 100;
 
-            BMI = (kgP / (cmP * cmP));
-            Console.WriteLine($"あなたのBMIは{BMI:F2}");
-            Console.WriteLine($"あなたは{BMIrating(BMI)}です。");
+                BMI = (kgP / (cmP * cmP));
+                Console.WriteLine($"あなたのBMIは{BMI:F2}");
+                Console.WriteLine($"あなたは{BMIrating(BMI)}です。");
+            }
         }
         //BMIを表示する
 
@@ -87,6 +100,23 @@ namespace ConsoleApp1
         }
         //string型で入力された数値をfloat型に変換する
 
-
+        static float fast(string[] no,int co)
+        {
+            float az = 0;
+            string a;
+            if (co == 0 || co == 1) {
+                a = no[co];
+                        bool parseOK = float.TryParse(a, out az);
+                        if (parseOK)
+                        {
+                            //Console.WriteLine("パース成功:" + parseOK);
+                        }
+                        else
+                        {
+                            Console.WriteLine("パース失敗。");
+                        }
+                    }
+            return (az);
+        }
     }
 }
