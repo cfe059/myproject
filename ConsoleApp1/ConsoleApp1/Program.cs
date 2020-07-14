@@ -14,32 +14,43 @@ namespace ConsoleApp1
 
         public static void BMI(string[] num)
         {
-            //string cm, kg;
-            float cmP, kgP, BMI;
-            if (num != null)
-            {
-                for (int i = 0; i < num.Length; i++)
-                {
-                    fast(num, i);
+            string[] aaa = new string[0];
 
+            //string cm, kg;
+            float cmP = 0, kgP = 0, BMI;
+            for (int i = 0; i < num.Length; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        cmP = fast(num, i);
+                        break;
+                    case 1:
+                        kgP = fast(num, i); ;
+                        break;
+                    default:
+                        break;
                 }
             }
-            else
+
+            if(cmP == 0)
             {
                 Console.WriteLine("身長を入力してください。");
                 //cm = float.Parse(Console.ReadLine());
                 cmP = NumReadfloat();
+            }
 
+            if(kgP == 0)
+            {
                 Console.WriteLine("体重を入力してください。");
                 //kg = float.Parse(Console.ReadLine());
                 kgP = NumReadfloat();
-
+            }
                 cmP /= 100;
 
                 BMI = (kgP / (cmP * cmP));
                 Console.WriteLine($"あなたのBMIは{BMI:F2}");
                 Console.WriteLine($"あなたは{BMIrating(BMI)}です。");
-            }
         }
         //BMIを表示する
 
